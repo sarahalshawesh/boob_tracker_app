@@ -6,12 +6,11 @@ from kivy.uix.boxlayout import BoxLayout
 class BoobTracker(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        layout = BoxLayout(orientation='horizontal')
-        left_boob = Button(text="left boob")
-        right_boob = Button(text="right boob")
-        layout.add_widget(left_boob)
-        layout.add_widget(right_boob)
-        self.add_widget(layout)
+        
+    def on_kv_post(self, base_widget):
+        self.ids.left_button.text = "left boob"
+        self.ids.right_button.text = "right boob"
+        
 
 class BoobApp(App):
     def build(Self):
