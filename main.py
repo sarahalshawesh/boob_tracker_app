@@ -1,19 +1,19 @@
 from kivy.app import App 
-from kivy.uix.widget import Widget
-from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout 
+from kivy.properties import StringProperty
+from kivy.uix.floatlayout import FloatLayout 
 
-class BoobTracker(BoxLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        
-    def on_kv_post(self, base_widget):
-        self.ids.left_button.text = "left boob"
-        self.ids.right_button.text = "right boob"
-        
+class BoobTracker(FloatLayout):
+    last_used = StringProperty("left")
+
+    def left_tap(self):
+        self.last_used = "left"
+    
+    def right_tap(self):
+        self.last_used = "right"
+
 
 class BoobApp(App):
-    def build(Self):
+    def build(self):
         return BoobTracker()
 
 if __name__ == "__main__":
