@@ -7,16 +7,28 @@
         id: mother
         size_hint: 1, 1
         keep_ratio: True
-        allow_stretch: True
+        fit_mode: "contain"
 
     Image:
-        source: "images/baby.jpeg"
+        source: "images/baby_facing_right.jpeg" if root.last_used == "left" else "images/baby_facing_left.jpeg"
         id: baby 
         size_hint: None, None
         size: dp(140), dp(140)
-        pos_hint: {"centre_x": 0.2 if root.last_used == "left" else 0.75, "centre_y": 0.4}
+        pos_hint: {"center_x": 0.2 if root.last_used == "left" else 0.75, "center_y": 0.4}
+    
+    
 
     Button:
+        id: left_boob
+        background_color: 0, 0, 0, 0
+        pos_hint: {"x": 0, "y": 0}
+        size_hint: 0.5, 1
+        on_press: root.left_tap()
 
     Button:
+        id: right_boob
+        background_color: 0, 0, 0, 0
+        pos_hint: {"x": 0.5, "y": 0}
+        size_hint: 0.5, 1
+        on_press: root.right_tap()
         
