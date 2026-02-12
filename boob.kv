@@ -1,12 +1,22 @@
 #:kivy 2.3.0
 
 <BoobTracker>:
-    orientation: "horizontal"
 
-    Widget: 
-        id: left_boob_widget
-        text: "left boob"
-    
-    Widget: 
-        id: right_boob_widget
-        text: "right boob"
+    Image:
+        source: "images/mother.jpeg"
+        id: mother
+        size_hint: 1, 1
+        keep_ratio: True
+        allow_stretch: True
+
+    Image:
+        source: "images/baby.jpeg"
+        id: baby 
+        size_hint: None, None
+        size: dp(140), dp(140)
+        pos_hint: {"centre_x": 0.2 if root.last_used == "left" else 0.75, "centre_y": 0.4}
+
+    Button:
+
+    Button:
+        
